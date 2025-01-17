@@ -27,3 +27,9 @@ void TIMER_0_INST_IRQHandler(void)
             break;
     }
 }
+//这里的系统主频是32MHZ
+void delay_ms(uint32_t ms)
+{
+    delay_cycles(CPUCLK_FREQ/1000);
+}
+~~~
