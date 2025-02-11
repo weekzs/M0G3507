@@ -4,6 +4,8 @@
 2、TIMER_翻转_led
 
 3、usart串口控制反转led
+
+4、引用CMSIS-DSP
 ~~~python
 DL_GPIO_readPins（）//读电平
 DL_GPIO_setPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//高电平
@@ -58,4 +60,8 @@ void UART_0_INST_IRQHandler(void)
             break;
     }
 }
+
+#include "arm_math.h"
+volatile float32_t ans;
+ans=arm_sin_f32(PI/2);
 ~~~
