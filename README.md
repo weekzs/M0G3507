@@ -9,6 +9,9 @@ https://blog.csdn.net/weixin_45309916/article/details/108275311
 3、usart串口控制反转led
 
 4、CMSIS-DSP引用
+
+5、IQMath
+
 ~~~python
 DL_GPIO_readPins（）//读电平
 DL_GPIO_setPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//高电平
@@ -67,4 +70,8 @@ void UART_0_INST_IRQHandler(void)
 #include "arm_math.h"
 volatile float32_t ans;
 ans=arm_sin_f32(PI/2);
+
+
+${COM_TI_MSPM0_SDK_INSTALL_DIR}/source/third_party/CMSIS/DSP/Include
+__BKPT();//这个是软件断点
 ~~~
