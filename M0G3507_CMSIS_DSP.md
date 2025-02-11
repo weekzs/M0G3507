@@ -40,7 +40,7 @@
 ![image-20250211200956742](./M0G3507_CMSIS_DSP.assets/image-20250211200956742.png)
 
 ### 4、2、3 第三步，添加math.h文件，剩下的和下面步骤一样
-${COM_TI_MSPM0_SDK_INSTALL_DIR}/source/third_party/CMSIS/DSP/Include
+
 ![image-20250211201338247](./M0G3507_CMSIS_DSP.assets/image-20250211201338247.png)
 
 ```c
