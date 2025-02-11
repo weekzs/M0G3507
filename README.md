@@ -32,6 +32,11 @@ void TIMER_0_INST_IRQHandler(void)
 void delay_ms(uint32_t ms)
 {
     delay_cycles(CPUCLK_FREQ/1000);
+    // 延迟 ms 毫秒
+    for (uint32_t i = 0; i < ms; i++)
+    {
+        delay_cycles(cycles_per_ms);
+    }
 }
 //串口发送函数
 DL_UART_Main_transmitData(UART_0_INST, gEchoData);
