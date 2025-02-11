@@ -4,7 +4,9 @@
 2、TIMER_翻转_led
 
 3、usart串口控制反转led
-~~~ python
+
+4、引用CMSIS-DSP
+~~~python
 DL_GPIO_readPins（）//读电平
 DL_GPIO_setPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//高电平
 DL_GPIO_clearPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//低电平
@@ -32,8 +34,12 @@ void TIMER_0_INST_IRQHandler(void)
 void delay_ms(uint32_t ms)
 {
     delay_cycles(CPUCLK_FREQ/1000);
+    // 延迟 ms 毫秒
+    for (uint32_t i = 0; i < ms; i++)
+    {
+        delay_cycles(cycles_per_ms);
+    }
 }
-
 //串口发送函数
 DL_UART_Main_transmitData(UART_0_INST, gEchoData);
 //串口中断判断
@@ -54,4 +60,8 @@ void UART_0_INST_IRQHandler(void)
             break;
     }
 }
+
+#include "arm_math.h"
+volatile float32_t ans;
+ans=arm_sin_f32(PI/2);
 ~~~
