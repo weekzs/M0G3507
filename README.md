@@ -5,7 +5,7 @@
 
 3、usart串口控制反转led
 
-4、引用CMSIS-DSP
+4、CMSIS-DSP引用
 ~~~python
 DL_GPIO_readPins（）//读电平
 DL_GPIO_setPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//高电平
