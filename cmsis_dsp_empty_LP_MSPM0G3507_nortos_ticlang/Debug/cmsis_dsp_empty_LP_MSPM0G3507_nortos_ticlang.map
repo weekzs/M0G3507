@@ -1,0 +1,372 @@
+******************************************************************************
+            TI ARM Clang Linker PC v4.0.0                      
+******************************************************************************
+>> Linked Tue Feb 11 20:12:15 2025
+
+OUTPUT FILE NAME:   <cmsis_dsp_empty_LP_MSPM0G3507_nortos_ticlang.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00000d1d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00020000  00000db8  0001f248  R  X
+  SRAM                  20200000   00008000  00000204  00007dfc  RW X
+  BCR_CONFIG            41c00000   00000080  00000000  00000080  R   
+  BSL_CONFIG            41c00100   00000080  00000000  00000080  R   
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000db8   00000db8    r-x
+  00000000    00000000    000000c0   000000c0    r-- .intvecs
+  000000c0    000000c0    00000808   00000808    r-- .rodata
+  000008c8    000008c8    000004d8   000004d8    r-x .text
+  00000da0    00000da0    00000018   00000018    r-- .cinit
+20200000    20200000    00000004   00000000    rw-
+  20200000    20200000    00000004   00000000    rw- .bss
+20207e00    20207e00    00000200   00000000    rw-
+  20207e00    20207e00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000c0     
+                  00000000    000000c0     startup_mspm0g350x_ticlang.o (.intvecs)
+
+.text      0    000008c8    000004d8     
+                  000008c8    000000d8     libclang_rt.builtins.a : addsf3.S.obj (.text)
+                  000009a0    000000a8     arm_cortexM0l_math.a : arm_sin_f32.o (.text.arm_sin_f32)
+                  00000a48    0000008c     libclang_rt.builtins.a : mulsf3.S.obj (.text.__mulsf3)
+                  00000ad4    00000062                            : aeabi_fcmp.S.obj (.text.__aeabi_fcmp)
+                  00000b36    00000002     startup_mspm0g350x_ticlang.o (.text.Default_Handler)
+                  00000b38    0000003c     libclang_rt.builtins.a : floatsisf.S.obj (.text.__floatsisf)
+                  00000b74    0000003c                            : comparesf2.S.obj (.text.__gtsf2)
+                  00000bb0    0000003c     libc.a : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
+                  00000bec    0000003a     libclang_rt.builtins.a : comparesf2.S.obj (.text.__eqsf2)
+                  00000c26    00000002     ti_msp_dl_config.o (.text.SYSCFG_DL_GPIO_init)
+                  00000c28    0000003a     libclang_rt.builtins.a : muldsi3.S.obj (.text.__muldsi3)
+                  00000c62    00000002     --HOLE-- [fill = 0]
+                  00000c64    00000038                            : fixsfsi.S.obj (.text.__fixsfsi)
+                  00000c9c    0000002c     ti_msp_dl_config.o (.text.SYSCFG_DL_initPower)
+                  00000cc8    0000002c     cmsis_dsp_empty.o (.text.main)
+                  00000cf4    00000028     libclang_rt.builtins.a : floatunsisf.S.obj (.text.__floatunsisf)
+                  00000d1c    00000028     libc.a : boot_cortex_m.c.obj (.text:_c_int00_noargs)
+                  00000d44    0000001c     ti_msp_dl_config.o (.text.SYSCFG_DL_SYSCTL_init)
+                  00000d60    00000016     libc.a : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset)
+                  00000d76    00000010     ti_msp_dl_config.o (.text.SYSCFG_DL_init)
+                  00000d86    0000000a     driverlib.a : dl_common.o (.text.DL_Common_delayCycles)
+                  00000d90    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+                  00000d94    00000004     libc.a : pre_init.c.obj (.text._system_pre_init)
+                  00000d98    00000004            : exit.c.obj (.text:abort)
+                  00000d9c    00000004     --HOLE-- [fill = 0]
+
+.cinit     0    00000da0    00000018     
+                  00000da0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000da8    00000004     (__TI_handler_table)
+                  00000dac    00000008     (__TI_cinit_table)
+                  00000db4    00000004     --HOLE-- [fill = 0]
+
+.rodata    0    000000c0    00000808     
+                  000000c0    00000804     arm_cortexM0l_math.a : arm_common_tables.o (.rodata.sinTable_f32)
+                  000008c4    00000004     --HOLE-- [fill = 0]
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.bss       0    20200000    00000004     UNINITIALIZED
+                  20200000    00000004     (.common:ans)
+
+.stack     0    20207e00    00000200     UNINITIALIZED
+                  20207e00    00000004     libc.a : boot_cortex_m.c.obj (.stack)
+                  20207e04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20200000    00000000     UNINITIALIZED
+
+__llvm_prf_bits 
+*          0    20200000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       startup_mspm0g350x_ticlang.o   6      192       0      
+       ti_msp_dl_config.o             90     0         0      
+       cmsis_dsp_empty.o              44     0         4      
+    +--+------------------------------+------+---------+---------+
+       Total:                         140    192       4      
+                                                              
+    C:/ti/mspm0_sdk_2_03_00_07/source/third_party/CMSIS/DSP/lib/ticlang/m0p/arm_cortexM0l_math.a
+       arm_common_tables.o            0      2052      0      
+       arm_sin_f32.o                  168    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         168    2052      0      
+                                                              
+    C:/ti/mspm0_sdk_2_03_00_07/source/ti/driverlib/lib/ticlang/m0p/mspm0g1x0x_g3x0x/driverlib.a
+       dl_common.o                    10     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         10     0         0      
+                                                              
+    C:\ti\ccstheia151\ccs\tools\compiler\ti-cgt-armllvm_4.0.0.LTS\lib\armv6m-ti-none-eabi/c/libc.a
+       autoinit.c.obj                 60     0         0      
+       boot_cortex_m.c.obj            40     0         0      
+       copy_zero_init.c.obj           22     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         130    0         0      
+                                                              
+    C:\ti\ccstheia151\ccs\tools\compiler\ti-cgt-armllvm_4.0.0.LTS\lib\armv6m-ti-none-eabi/libclang_rt.builtins.a
+       addsf3.S.obj                   216    0         0      
+       mulsf3.S.obj                   140    0         0      
+       comparesf2.S.obj               118    0         0      
+       aeabi_fcmp.S.obj               98     0         0      
+       floatsisf.S.obj                60     0         0      
+       muldsi3.S.obj                  58     0         0      
+       fixsfsi.S.obj                  56     0         0      
+       floatunsisf.S.obj              40     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         786    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      20        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   1234   2264      516    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000dac records: 1, size/record: 8, table size: 8
+	.bss: load addr=00000da0, load size=00000008 bytes, run addr=20200000, run size=00000004 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000da8 records: 1, size/record: 4, table size: 4
+	index: 0, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00000b37  ADC0_IRQHandler               
+00000b37  ADC1_IRQHandler               
+00000b37  AES_IRQHandler                
+00000d98  C$$EXIT                       
+00000b37  CANFD0_IRQHandler             
+00000b37  DAC0_IRQHandler               
+00000d87  DL_Common_delayCycles         
+00000b37  DMA_IRQHandler                
+00000b37  Default_Handler               
+00000b37  GROUP0_IRQHandler             
+00000b37  GROUP1_IRQHandler             
+00000b37  HardFault_Handler             
+00000b37  I2C0_IRQHandler               
+00000b37  I2C1_IRQHandler               
+00000b37  NMI_Handler                   
+00000b37  PendSV_Handler                
+00000b37  RTC_IRQHandler                
+00000d91  Reset_Handler                 
+00000b37  SPI0_IRQHandler               
+00000b37  SPI1_IRQHandler               
+00000b37  SVC_Handler                   
+00000c27  SYSCFG_DL_GPIO_init           
+00000d45  SYSCFG_DL_SYSCTL_init         
+00000d77  SYSCFG_DL_init                
+00000c9d  SYSCFG_DL_initPower           
+00000b37  SysTick_Handler               
+00000b37  TIMA0_IRQHandler              
+00000b37  TIMA1_IRQHandler              
+00000b37  TIMG0_IRQHandler              
+00000b37  TIMG12_IRQHandler             
+00000b37  TIMG6_IRQHandler              
+00000b37  TIMG7_IRQHandler              
+00000b37  TIMG8_IRQHandler              
+00000b37  UART0_IRQHandler              
+00000b37  UART1_IRQHandler              
+00000b37  UART2_IRQHandler              
+00000b37  UART3_IRQHandler              
+20208000  __STACK_END                   
+00000200  __STACK_SIZE                  
+00000000  __TI_ATRegion0_region_sz      
+00000000  __TI_ATRegion0_src_addr       
+00000000  __TI_ATRegion0_trg_addr       
+00000000  __TI_ATRegion1_region_sz      
+00000000  __TI_ATRegion1_src_addr       
+00000000  __TI_ATRegion1_trg_addr       
+00000000  __TI_ATRegion2_region_sz      
+00000000  __TI_ATRegion2_src_addr       
+00000000  __TI_ATRegion2_trg_addr       
+00000dac  __TI_CINIT_Base               
+00000db4  __TI_CINIT_Limit              
+00000db4  __TI_CINIT_Warm               
+00000da8  __TI_Handler_Table_Base       
+00000dac  __TI_Handler_Table_Limit      
+00000bb1  __TI_auto_init_nobinit_nopinit
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00000d61  __TI_zero_init_nomemset       
+000008d3  __addsf3                      
+00000c65  __aeabi_f2iz                  
+000008d3  __aeabi_fadd                  
+00000ad5  __aeabi_fcmpeq                
+00000b11  __aeabi_fcmpge                
+00000b25  __aeabi_fcmpgt                
+00000afd  __aeabi_fcmple                
+00000ae9  __aeabi_fcmplt                
+00000a49  __aeabi_fmul                  
+000008c9  __aeabi_fsub                  
+00000b39  __aeabi_i2f                   
+00000cf5  __aeabi_ui2f                  
+ffffffff  __binit__                     
+00000bed  __cmpsf2                      
+00000bed  __eqsf2                       
+00000c65  __fixsfsi                     
+00000b39  __floatsisf                   
+00000cf5  __floatunsisf                 
+00000b75  __gesf2                       
+00000b75  __gtsf2                       
+00000bed  __lesf2                       
+00000bed  __ltsf2                       
+UNDEFED   __mpu_init                    
+00000c29  __muldsi3                     
+00000a49  __mulsf3                      
+00000bed  __nesf2                       
+20207e00  __stack                       
+20200000  __start___llvm_prf_bits       
+20200000  __start___llvm_prf_cnts       
+20200000  __stop___llvm_prf_bits        
+20200000  __stop___llvm_prf_cnts        
+000008c9  __subsf3                      
+00000d1d  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00000d95  _system_pre_init              
+00000d99  abort                         
+20200000  ans                           
+000009a1  arm_sin_f32                   
+ffffffff  binit                         
+00000000  interruptVectors              
+00000cc9  main                          
+000000c0  sinTable_f32                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_ATRegion0_region_sz      
+00000000  __TI_ATRegion0_src_addr       
+00000000  __TI_ATRegion0_trg_addr       
+00000000  __TI_ATRegion1_region_sz      
+00000000  __TI_ATRegion1_src_addr       
+00000000  __TI_ATRegion1_trg_addr       
+00000000  __TI_ATRegion2_region_sz      
+00000000  __TI_ATRegion2_src_addr       
+00000000  __TI_ATRegion2_trg_addr       
+00000000  __TI_static_base__            
+00000000  interruptVectors              
+000000c0  sinTable_f32                  
+00000200  __STACK_SIZE                  
+000008c9  __aeabi_fsub                  
+000008c9  __subsf3                      
+000008d3  __addsf3                      
+000008d3  __aeabi_fadd                  
+000009a1  arm_sin_f32                   
+00000a49  __aeabi_fmul                  
+00000a49  __mulsf3                      
+00000ad5  __aeabi_fcmpeq                
+00000ae9  __aeabi_fcmplt                
+00000afd  __aeabi_fcmple                
+00000b11  __aeabi_fcmpge                
+00000b25  __aeabi_fcmpgt                
+00000b37  ADC0_IRQHandler               
+00000b37  ADC1_IRQHandler               
+00000b37  AES_IRQHandler                
+00000b37  CANFD0_IRQHandler             
+00000b37  DAC0_IRQHandler               
+00000b37  DMA_IRQHandler                
+00000b37  Default_Handler               
+00000b37  GROUP0_IRQHandler             
+00000b37  GROUP1_IRQHandler             
+00000b37  HardFault_Handler             
+00000b37  I2C0_IRQHandler               
+00000b37  I2C1_IRQHandler               
+00000b37  NMI_Handler                   
+00000b37  PendSV_Handler                
+00000b37  RTC_IRQHandler                
+00000b37  SPI0_IRQHandler               
+00000b37  SPI1_IRQHandler               
+00000b37  SVC_Handler                   
+00000b37  SysTick_Handler               
+00000b37  TIMA0_IRQHandler              
+00000b37  TIMA1_IRQHandler              
+00000b37  TIMG0_IRQHandler              
+00000b37  TIMG12_IRQHandler             
+00000b37  TIMG6_IRQHandler              
+00000b37  TIMG7_IRQHandler              
+00000b37  TIMG8_IRQHandler              
+00000b37  UART0_IRQHandler              
+00000b37  UART1_IRQHandler              
+00000b37  UART2_IRQHandler              
+00000b37  UART3_IRQHandler              
+00000b39  __aeabi_i2f                   
+00000b39  __floatsisf                   
+00000b75  __gesf2                       
+00000b75  __gtsf2                       
+00000bb1  __TI_auto_init_nobinit_nopinit
+00000bed  __cmpsf2                      
+00000bed  __eqsf2                       
+00000bed  __lesf2                       
+00000bed  __ltsf2                       
+00000bed  __nesf2                       
+00000c27  SYSCFG_DL_GPIO_init           
+00000c29  __muldsi3                     
+00000c65  __aeabi_f2iz                  
+00000c65  __fixsfsi                     
+00000c9d  SYSCFG_DL_initPower           
+00000cc9  main                          
+00000cf5  __aeabi_ui2f                  
+00000cf5  __floatunsisf                 
+00000d1d  _c_int00_noargs               
+00000d45  SYSCFG_DL_SYSCTL_init         
+00000d61  __TI_zero_init_nomemset       
+00000d77  SYSCFG_DL_init                
+00000d87  DL_Common_delayCycles         
+00000d91  Reset_Handler                 
+00000d95  _system_pre_init              
+00000d98  C$$EXIT                       
+00000d99  abort                         
+00000da8  __TI_Handler_Table_Base       
+00000dac  __TI_CINIT_Base               
+00000dac  __TI_Handler_Table_Limit      
+00000db4  __TI_CINIT_Limit              
+00000db4  __TI_CINIT_Warm               
+20200000  __start___llvm_prf_bits       
+20200000  __start___llvm_prf_cnts       
+20200000  __stop___llvm_prf_bits        
+20200000  __stop___llvm_prf_cnts        
+20200000  ans                           
+20207e00  __stack                       
+20208000  __STACK_END                   
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[101 symbols]
