@@ -105,4 +105,16 @@ int puts(const char*_ptr)
     count+=fputs("\n",stdout);
     return count;
 }
+//定义自己的发送函数
+void Sendtring(char *str)
+{
+    while(*str!='\0')
+    {
+        DL_UART_Main_transmitDataBlocking(UART_0_INST,*str++);
+    }
+}
+//sprintf存储发送
+char txBuff[100];
+sprintf(txBuff,"msp0 %d",3507);
+Sendtring(txBuff);
 ~~~
