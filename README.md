@@ -16,6 +16,10 @@ https://blog.csdn.net/weixin_45309916/article/details/108275311
 
 7、Encoder
 
+8、80MHZ_system_clock
+
+9、Oled_software
+
 ~~~python
 DL_GPIO_readPins（）//读电平
 DL_GPIO_setPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//高电平
@@ -165,4 +169,9 @@ void TIMER_0_INST_IRQHandler(void)
             break;
     }
 }
+
+//oled显示
+OLED_Init();		//初始化OLED
+ sprintf(str,"a=%.2f b=%d",a,b);
+OLED_ShowString(0,6,(uint8_t *)str,8);  
 ~~~
