@@ -14,6 +14,8 @@ https://blog.csdn.net/weixin_45309916/article/details/108275311
 
 6、Printf
 
+7、Encoder
+
 ~~~python
 DL_GPIO_readPins（）//读电平
 DL_GPIO_setPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//高电平
@@ -104,5 +106,63 @@ int puts(const char*_ptr)
     int count = fputs(_ptr,stdout);
     count+=fputs("\n",stdout);
     return count;
+}
+//定义自己的发送函数
+void Sendtring(char *str)
+{
+    while(*str!='\0')
+    {
+        DL_UART_Main_transmitDataBlocking(UART_0_INST,*str++);
+    }
+}
+//sprintf存储发送
+char txBuff[100];
+sprintf(txBuff,"msp0 %d",3507);
+Sendtring(txBuff);
+
+
+//PWM配置
+//开启定时器
+ DL_Timer_startCounter(PWM_INST);
+//设置ccr占空比
+DL_Timer_setCaptureCompareValue(PWM_INST,speed,DL_TIMER_CC_1_INDEX);
+//外部中断编码器
+//这里的中断合并了，在中断向量表中，Group0是GPIOA，Group1是GPIOB
+void GROUP1_IRQHandler(void)
+{
+    /*
+     * Get the pending interrupt for the GPIOA port and store for
+     * comparisons later
+     */
+    gpioA = DL_GPIO_getEnabledInterruptStatus(GPIO_Encoder_Left_A_PORT,GPIO_Encoder_Left_A_PIN | GPIO_Encoder_Left_B_PIN);
+if (gpioA & GPIO_Encoder_Left_A_PIN) {
+    if (DL_GPIO_readPins(GPIOA, GPIO_Encoder_Left_B_PIN)) {
+        left--; // A 上升沿时，B 为高电平，表示反向
+    } else {
+        left++; // A 上升沿时，B 为低电平，表示正向
+    }
+    //这里的清除标志位，不要忘记了
+    DL_GPIO_clearInterruptStatus(GPIOA, GPIO_Encoder_Left_A_PIN);
+}
+if (gpioA & GPIO_Encoder_Left_B_PIN) {
+    if (DL_GPIO_readPins(GPIOA, GPIO_Encoder_Left_A_PIN)) {
+        left++; // B 上升沿时，A 为高电平，表示正向
+    } else {
+        left--; // B 上升沿时，A 为低电平，表示反向
+    }
+    DL_GPIO_clearInterruptStatus(GPIOA, GPIO_Encoder_Left_B_PIN);
+}
+}
+//定时器中断编码器
+void TIMER_0_INST_IRQHandler(void)
+{
+    switch (DL_TimerG_getPendingInterrupt(TIMER_0_INST)) {
+        case DL_TIMER_IIDX_ZERO:
+            left=0;
+          //  DL_TimerG_clearInterruptStatus(TIMER_0_INST); // 清除中断标
+            break;
+        default:
+            break;
+    }
 }
 ~~~
