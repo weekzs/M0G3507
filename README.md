@@ -12,6 +12,8 @@ https://blog.csdn.net/weixin_45309916/article/details/108275311
 
 5、IQMath
 
+6、Printf
+
 ~~~python
 DL_GPIO_readPins（）//读电平
 DL_GPIO_setPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//高电平
@@ -74,4 +76,33 @@ ans=arm_sin_f32(PI/2);
 
 ${COM_TI_MSPM0_SDK_INSTALL_DIR}/source/third_party/CMSIS/DSP/Include
 __BKPT();//这个是软件断点
+
+//阻塞发送，发送完成才进行下一步发送
+DL_UART_Main_transmitDataBlocking(UART_0_INST,c);
+//延时函数
+delay_cycles(32000000);
+//三条重定向语句
+int fputc(int c,FILE* stream)
+{
+    DL_UART_Main_transmitDataBlocking(UART_0_INST,c);
+    return c;
+}
+//如果只定义上面一个函数的话，那么printf不能打印参数
+//下面两个重定向就一起重定向
+int fputs(const char* restrict s,FILE* restrict stream)
+{
+    uint16_t i,len;
+    len=strlen(s);
+    for(i=0;i<len;i++)
+    {
+        DL_UART_Main_transmitDataBlocking(UART_0_INST,s[i]);
+    }
+    return len;
+}
+int puts(const char*_ptr)
+{
+    int count = fputs(_ptr,stdout);
+    count+=fputs("\n",stdout);
+    return count;
+}
 ~~~
