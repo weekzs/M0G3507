@@ -16,6 +16,7 @@ https://blog.csdn.net/weixin_45309916/article/details/108275311
 
 7、Encoder
 
+8、80MHZ_system_clock
 ~~~python
 DL_GPIO_readPins（）//读电平
 DL_GPIO_setPins(GPIO_LEDS_PORT, GPIO_LEDS_USER_LED_1_PIN);//高电平
